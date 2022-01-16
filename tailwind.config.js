@@ -14,8 +14,11 @@ module.exports = {
         "ubuntu-mono": ["Ubuntu Mono", ...defaultTheme.fontFamily.mono],
         system: defaultTheme.fontFamily.sans,
         flow: "Flow",
+        signature:"Signature",
+        plex: ['IBM Plex Sans']
       },
     },
   },
-  plugins: [],
+  plugins: []
+
 }
