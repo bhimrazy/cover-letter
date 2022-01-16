@@ -154,7 +154,7 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-row justify-between">
-            <button className="px-8 py-3 bg-white shadow-sm rounded-md hover:bg-gray-50 text-gray-900 font-bold border text-sm text-center">
+            <button onClick={()=>{window.print();}} className="px-8 py-3 bg-white shadow-sm rounded-md hover:bg-gray-50 text-gray-900 font-bold border text-sm text-center">
               Print
             </button>
             <button
@@ -185,7 +185,7 @@ export default function Home() {
             <div className="text-center">Subject: NP Domain Registration</div>
             <div>
               Dear Sir/Madam,
-              <br /> I am writing this letter to request you to kiindly register
+              <br /> I am writing this letter to request you to kindly register
               a .np domain for me based on my name. I have provided my personal
               details, and also a scanned copy of my citizenship with this
               letter. Thank you for considering my application!
@@ -208,7 +208,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t print:hidden">
+      <footer className="flex flex-col space-y-2 items-center justify-center w-full h-24 border-t print:hidden">
         <a
           className="flex items-center justify-center"
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -218,6 +218,26 @@ export default function Home() {
           Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
         </a>
+        <div className="items-center flex flex-shrink-0 justify-center">
+          <span>Made with </span>
+          <span className="text-pink-600 px-1">
+            <svg
+              className="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          </span>
+          <span className="font-medium text-blue-600 hover:text-blue-700">
+            By Bhimraj Yadav
+          </span>
+        </div>
       </footer>
     </div>
   );

@@ -15,7 +15,6 @@ module.exports = {
         system: defaultTheme.fontFamily.sans,
         flow: "Flow",
         signature:"Signature",
-        plex: ['IBM Plex Sans']
       },
     },
   },

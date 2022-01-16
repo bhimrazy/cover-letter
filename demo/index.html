@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter Generator</title>
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="flex flex-col min-h-screen bg-gray-200">
+        <header class="py-12 print:hidden">
+            <h1 class="font-bold text-center text-6xl text-gray-800">Cover Letter Generator</h1>
+        </header>
+        <main class="grid grid-cols-1 sm:grid-cols-3 justify-center w-full flex-1 px-20">
+            <section>
+                <form class="px-20 py-10 space-y-6 flex flex-col print:hidden" id="myForm">
+                    <div><label for="domain" class="block text-sm font-medium text-gray-700">Domain Name</label><input
+                            type="text"
+                            class="px-4 py-2 mt-1 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm rounded-md"
+                            id="domain" maxlength="50" placeholder="example.com.np"></div>
+                    <div><label for="ns1" class="block text-sm font-medium text-gray-700">Primary Name
+                            Server</label><input type="text"
+                            class="px-4 py-2 mt-1 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm rounded-md"
+                            id="ns1" maxlength="50" placeholder="ns1.example.com.np"></div>
+                    <div><label for="ns1" class="block text-sm font-medium text-gray-700">Secondary Name
+                            Server</label><input type="text"
+                            class="px-4 py-2 mt-1 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm rounded-md"
+                            id="ns2" maxlength="50" placeholder="ns2.example.com.np"></div>
+                    <div><label for="ns1" class="block text-sm font-medium text-gray-700">Signature</label><input
+                            type="text"
+                            class="px-4 py-2 mt-1 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm rounded-md"
+                            id="signature" maxlength="20" placeholder="Signature"></div>
+                    <div><label for="ns1" class="block text-sm font-medium text-gray-700">Name</label><input type="text"
+                            class="px-4 py-2 mt-1 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm rounded-md"
+                            id="name" maxlength="50" placeholder="Enter your Name"></div>
+                    <div><label for="ns1" class="block text-sm font-medium text-gray-700">Address</label><input
+                            type="text"
+                            class="px-4 py-2 mt-1 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm rounded-md"
+                            id="address" maxlength="50" placeholder="Enter Your address"></div>
+                    <div class="flex flex-row justify-between"><button id="print"
+                            class="px-8 py-3 bg-white shadow-sm rounded-md hover:bg-gray-50 text-gray-900 font-bold border text-sm text-center">Print</button><button
+                            id="clear" type="button"
+                            class="px-8 py-3 bg-white shadow-sm rounded-md hover:bg-gray-50 text-gray-900 font-bold border text-sm text-center">Clear</button>
+                    </div>
+                </form>
+            </section>
+            <section id="printable" class="col-span-2 bg-gray-50 rounded-lg shadow-sm print:shadow-transparent">
+                <div class="flex flex-col max-w-2xl mx-auto py-32 font-medium justify-center space-y-8">
+                    <div class="text-right"><span id="date" class="text-gray-800"></span></div>
+                    <div>
+                        <p>To,<br>The Hostmaster,<br>Mercantile Communication Pvt. Ltd.<br>Durbar Marg, Kathmandu<br>
+                        </p>
+                    </div>
+                    <div class="text-center">Subject: NP Domain Registration</div>
+                    <div>Dear Sir/Madam,<br> I am writing this letter to request you to kiindly register a .np domain
+                        for me based on my name. I have provided my personal details, and also a scanned copy of my
+                        citizenship with this letter. Thank you for considering my application!</div>
+                    <div>
+                        <div>Domain name:
+                            <span id="domain_value" class="text-gray-800"></span>
+                        </div>
+                        <div>Primary Name Server : <span id="ns1_value" class="text-gray-800"></span>
+
+                        </div>
+                        <div>Secondary Name Server: <span id="ns2_value" class="text-gray-800"></span>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div>Sincerely,</div>
+                        <div class="text-2xl items-center flex h-16 font-signature"> <span id="signature_value"
+                                class="text-gray-800"></span></div>Name: <span id="name_value"
+                            class="text-gray-800"></span><br>Address: <span id="address_value"
+                            class="text-gray-800"></span>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="flex items-center justify-center w-full h-24 border-t print:hidden"><a
+                class="flex items-center justify-center"
+                href="https://vercel.com?utm_source=create-next-app&amp;utm_medium=default-template&amp;utm_campaign=create-next-app"
+                target="_blank" rel="noopener noreferrer">Powered by
+                <img src="/vercel.svg" alt="Vercel Logo" class="h-4 ml-2">
+            </a></footer>
+    </div>
+    <script>
+        const date = "Date : " + new Date().getDate() + " " + new Date().toLocaleString("en-US", { month: "short" }) + " " + new Date().getFullYear();
+        document.getElementById("date").innerHTML = date;
+
+        const handleChange = (event) => {
+            var x = document.getElementById(event.target.id + "_value");
+            x.innerHTML = event.target.value;
+        }
+        document.getElementById("domain").addEventListener("input", handleChange);
+        document.getElementById("ns1").addEventListener("input", handleChange);
+        document.getElementById("ns2").addEventListener("input", handleChange);
+        document.getElementById("signature").addEventListener("input", handleChange);
+        document.getElementById("name").addEventListener("input", handleChange);
+        document.getElementById("address").addEventListener("input", handleChange);
+        document.getElementById("clear").addEventListener("click", (event) => {
+            event.preventDefault();
+            document.getElementById("myForm").reset();
+        });
+
+        const handlePrint = (event) => {
+            // event.preventDefault();
+            // var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+            // mywindow.document.write('<html><head><title>' + document.title + '</title>');
+            // mywindow.document.write('</head><body >');
+            // mywindow.document.write('<h1>' + document.title + '</h1>');
+            // mywindow.document.write(document.getElementById('printable').innerHTML);
+            // mywindow.document.write('</body></html>');
+
+            // mywindow.document.close(); // necessary for IE >= 10
+            // mywindow.focus(); // necessary for IE >= 10*/
+
+            // mywindow.print();
+            // mywindow.close();
+
+            // return true;
+            // var divContents = document.getElementById("printable").innerHTML;
+            // var a = window.open('', 'PRINT', 'height=400,width=600');
+            // a.document.write('<html>');
+            // a.document.write('<body > <h1>Div contents are <br>');
+            // a.document.write(document.documentElement.innerHTML);
+            // a.document.write('</body></html>');
+            // a.document.close();
+            // a.print();
+            window.print();
+        }
+        document.getElementById("print").addEventListener("click", handlePrint)
+
+    </script>
+</body>
+
+</html>
